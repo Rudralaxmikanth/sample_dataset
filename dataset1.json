@@ -1,0 +1,234 @@
+
+{
+"data": [
+{
+"title": "window.ImageBlob",
+"context": "Since: UXP v7.0.0",
+"questions": [
+{
+"question": "What is window.ImageBlob?",
+"answer": "window.ImageBlob refers to a feature or object introduced in UXP v7.0.0."
+}
+]
+},
+{
+"title": "ImageBlob(arrayBuffer, options)",
+"context": "Blobs are used to create URLs, which can be used as src in HTMLImageElement. It can be created using image data in the standard compression formats such as PNG, JPG, JPEG ,etc.\nImageBlob is a custom type that extends the support to use uncompressed image data. \ne.g. ImageBlob can be created by passing arrayBuffer containing the RGB values for each pixel and options containing metadata to interpret the data in arraybuffer. ImageBlob can be created in the following ways\n- standard image compression formats: pass ArrayBuffer of the standard compression formats and mimeType of the compression in the options.type.\n- uncompressed image: pass ArrayBuffer of the uncompressed image data i.e. raw data of each pixel and options to interpret the data, option.type should be passed as image/uncompressed. PhotoshopImageData is compatible with ImageBlob,\nPhotoshopImageData object can be directly passed in for options. Note: ImageBlob support is subject to enablement by HostApp. Currently supported by Photoshop. Returns: Instance of ImageBlob with the given data\nThrows: | Param | Type | Description |\n| --- | --- | --- |\n| arrayBuffer | ArrayBuffer | ArrayBuffer containing the image data |\n| options | Object | Meta data to interpret ArrayBuffer passed. For standard compression options.type is mandatory, for uncompressed image data all the values are mandatory unless mentioned optional |\n| options.type | string | mimeType of the imageData passed. Could be standard formats imagepng, imagejpg and for uncompressed data imageuncompressed |\n| options.width | number | The width in pixels of the image data |\n| options.height | number | The height in pixels of the image data |\n| options.colorSpace | string | The color space (or mode) for the image data. This can be RGB or Grayscale |\n| options.hasAlpha | boolean | True if the image includes an alpha channel |\n| options.components | number | Number of components per pixel. This is 3 for RGB, 4 for RGBA and so forth |\n| options.componentSize | number | Number of bits per component. This can be 8 or 16 |\n| options.pixelFormat | string | Memory layout (order) of components in a pixel. Could be RGB, RGBA, or Gray |\n| options.colorProfile | string | [Optional] - The color profile (or mode) for the image data. This could be be Adobe RGB 1998",
+"questions": [
+{
+    "question": "What are blobs used for in HTMLImageElement?",
+    "answer": "Blobs are used to create URLs that can be used as the src attribute in HTMLImageElement."
+},
+{
+    "question": "What types of image data can be used to create blobs?",
+    "answer": "Image data in standard compression formats such as PNG, JPG, JPEG, etc., can be used to create blobs."
+},
+{
+    "question": "What does the ImageBlob type extend the support for?",
+    "answer": "The ImageBlob type extends the support to use uncompressed image data."
+},
+{
+    "question": "How can an ImageBlob be created?",
+    "answer": "An ImageBlob can be created by passing an ArrayBuffer containing the RGB values for each pixel and options to interpret the data."
+},
+{
+    "question": "What are the ways to create an ImageBlob?",
+    "answer": "ImageBlob can be created using standard image compression formats or uncompressed image data."
+},
+{
+    "question": "Which image compression formats are supported for creating an ImageBlob?",
+    "answer": "Standard compression formats such as PNG, JPG, and JPEG are supported for creating an ImageBlob."
+},
+{
+    "question": "What is the mimeType parameter used for when creating an ImageBlob?",
+    "answer": "The mimeType parameter is used to specify the compression format of the imageData passed, such as \"image/png\" or \"image/jpg\"."
+},
+{
+    "question": "What is the required parameter for standard compression options when creating an ImageBlob?",
+    "answer": "The options.type parameter is mandatory for standard compression options."
+},
+{
+    "question": "What is the required parameter for uncompressed image data when creating an ImageBlob?",
+    "answer": "For uncompressed image data, all the values in the options object are mandatory unless specified as optional."
+},
+{
+    "question": "Which application currently supports ImageBlob?",
+    "answer": "ImageBlob is currently supported by Photoshop."
+},
+{
+    "question": "What does the ImageBlob creation method return?",
+    "answer": "The ImageBlob creation method returns an instance of ImageBlob with the given data."
+},
+{
+    "question": "What does the arrayBuffer parameter contain when creating an ImageBlob?",
+    "answer": "The arrayBuffer parameter contains the image data for creating the ImageBlob."
+},
+{
+    "question": "What are the mandatory properties in the options object for uncompressed image data?",
+    "answer": "The mandatory properties for uncompressed image data in the options object include type, width, height, colorSpace, hasAlpha, components, componentSize, and pixelFormat."
+},
+{
+    "question": "What does the colorSpace property define in the options object?",
+    "answer": "The colorSpace property defines the color space or mode of the image data, which can be \"RGB\" or \"Grayscale\"."
+},
+{
+    "question": "What does the hasAlpha property indicate in the options object?",
+    "answer": "The hasAlpha property indicates whether the image includes an alpha channel (transparency)."
+},
+{
+    "question": "What does the components property represent in the options object?",
+    "answer": "The components property represents the number of components per pixel, such as 3 for RGB or 4 for RGBA."
+},
+{
+    "question": "What does the componentSize property specify in the options object?",
+    "answer": "The componentSize property specifies the number of bits per component"
+}      
+]
+},
+{
+"title": "size : number",
+"context": "Read only\nSize of the Blob in bytes",
+"questions": [
+{
+"question": "What does 'size' refer to in 'size : number'?",
+"answer": "'size' refers to the size of the Blob in bytes."
+}
+]
+},
+{
+"title": "type : string",
+"context": "Read only\nMIME type of the Blob",
+"questions": [
+{
+"question": "What does 'type' represent in 'type : string'?",
+"answer": "'type' represents the MIME type of the Blob."
+}
+]
+},
+{
+"title": "arrayBuffer()",
+"context": "Get the contents of the Blob in the form of an ArrayBuffer Returns: Promise<ArrayBuffer>",
+"questions": [
+{
+"question": "What does the 'arrayBuffer()' function do?",
+"answer": "The 'arrayBuffer()' function retrieves the contents of the Blob and returns them as an ArrayBuffer."
+},
+{
+"question": "What is the return type of the 'arrayBuffer()' function?",
+"answer": "The 'arrayBuffer()' function returns a Promise that resolves to an ArrayBuffer."
+}
+]
+},
+{
+"title": "slice(start, end, contentType)",
+"context": "Get a portion of the Blob's data selected from start to end (end not included). Returns: Blob | Param | Type | Description |\n| --- | --- | --- |\n| start | number | (Optional)- Index into the Blob indicating the first byte to include in the new Blob |\n| end | number | (Optional)- Index into the Blob indicating the first byte that will NOT be included in the new Blob |\n| contentType | string | (Optional)- A string containing the file's MIME type, or an empty string if the type could not be determined. Refer Blob.type |",
+"questions": [
+{
+    "question": "What does the \"slice\" method do for a Blob?",
+    "answer": "The \"slice\" method returns a portion of the Blob's data selected from start to end (end not included)."
+},
+{
+    "question": "What does the \"slice\" method return?",
+    "answer": "The \"slice\" method returns a new Blob."
+},
+{
+    "question": "What parameters are accepted by the \"slice\" method?",
+    "answer": "The \"slice\" method accepts the following parameters: start (number), end (number), and contentType (string)."
+},
+{
+    "question": "What does the \"start\" parameter indicate in the \"slice\" method?",
+    "answer": "The \"start\" parameter is an optional index into the Blob indicating the first byte to include in the new Blob."
+},
+{
+    "question": "What does the \"end\" parameter indicate in the \"slice\" method?",
+    "answer": "The \"end\" parameter is an optional index into the Blob indicating the first byte that will NOT be included in the new Blob."
+},
+{
+    "question": "What is the purpose of the \"contentType\" parameter in the \"slice\" method?",
+    "answer": "The \"contentType\" parameter is an optional string containing the file's MIME type. It can be used to specify the type of the new Blob."
+},
+{
+    "question": "What should be passed if the \"contentType\" of the Blob is unknown?",
+    "answer": "If the \"contentType\" of the Blob could not be determined, an empty string can be passed as the \"contentType\" parameter."
+},
+{
+    "question": "How many parameters does the \"slice\" method accept?",
+    "answer": "The \"slice\" method accepts three parameters: start, end, and contentType."
+},
+{
+    "question": "Is the \"start\" parameter mandatory in the \"slice\" method?",
+    "answer": "No, the \"start\" parameter is optional in the \"slice\" method."
+},
+{
+    "question": "What is the purpose of the \"end\" parameter in the \"slice\" method?",
+    "answer": "The \"end\" parameter defines the index indicating the first byte that will NOT be included in the new Blob."
+},
+{
+    "question": "What does the \"contentType\" parameter represent in the \"slice\" method?",
+    "answer": "The \"contentType\" parameter represents the MIME type of the file associated with the Blob."
+},
+{
+    "question": "How can the \"slice\" method be used to extract a specific portion of a Blob?",
+    "answer": "By specifying the appropriate start and end indices, the \"slice\" method can extract a specific portion of the Blob's data."
+},
+{
+    "question": "Can the \"slice\" method modify the original Blob?",
+    "answer": "No, the \"slice\" method does not modify the original Blob. It returns a new Blob containing the selected portion of data."
+},
+{
+    "question": "What does the \"contentType\" parameter default to if not provided in the \"slice\" method?",
+    "answer": "If the \"contentType\" parameter is not provided, its value defaults to an empty string."
+},
+{
+    "question": "How is the \"contentType\" parameter used in the \"slice\" method?",
+    "answer": "The \"contentType\" parameter is used to specify the MIME type of the new Blob created by the \"slice\" method."
+},
+{
+    "question": "What does the \"start\" parameter default to if not provided in the \"slice\" method?",
+    "answer": "If the \"start\" parameter is not provided, the \"slice\" method will include data from the beginning of the Blob."
+},
+{
+    "question": "What does the \"end\" parameter default to if not provided in the \"slice\" method?",
+    "answer": "If the \"end\" parameter is not provided, the \"slice\" method will include data until the end of the Blob."
+},
+{
+    "question": "Can the \"start\" parameter be a negative value in the \"slice\" method?",
+    "answer": "Yes, the \"start\" parameter can be a negative value, indicating an index relative to the end of the Blob."
+},
+{
+    "question": "Can the \"end\" parameter be a negative value in the \"slice\" method?",
+    "answer": "Yes, the \"end\" parameter can be a negative value, indicating an index relative to the end of the Blob."
+}
+  ]
+  
+},
+{
+"title": "stream()",
+"context": "Get the data contained within the Blob as a ReadableStream Returns: ReadableStream",
+"questions": [
+{
+"question": "What does the 'stream()' function do?",
+"answer": "The 'stream()' function retrieves the data contained within the Blob as a ReadableStream."
+},
+{
+"question": "What is the return type of the 'stream()' function?",
+"answer": "The 'stream()' function returns a ReadableStream."
+}
+]
+},
+{
+"title": "text()",
+"context": "Get contents of the Blob as a string in UTF-8 format. Returns: Promise<String>",
+"questions": [
+{
+"question": "What does the 'text()' function do?",
+"answer": "The 'text()' function retrieves the contents of the Blob and returns them as a string in UTF-8 format."
+},
+{
+"question": "What is the return type of the 'text()' function?",
+"answer": "The 'text()' function returns a Promise that resolves to a string."
+}
+]
+}
+]
+}
